@@ -28,9 +28,21 @@ class FluroRoutes {
   });
 
   static void setupRouter() {
-    router.define(Home.routeName, handler: _homeHandler);
-    router.define(Artists.routeName, handler: _artistsHandler);
-    router.define('${Artists.routeName}/:uuid', handler: _artistsHandler);
+    router.define(
+      Home.routeName,
+      handler: _homeHandler,
+      transitionType: TransitionType.cupertino,
+    );
+    router.define(
+      Artists.routeName,
+      handler: _artistsHandler,
+      transitionType: TransitionType.cupertino,
+    );
+    router.define(
+      '${Artists.routeName}/:uuid',
+      handler: _artistsHandler,
+      transitionType: TransitionType.inFromRight,
+    );
     router.notFoundHandler = notFoundHandler;
   }
 }
